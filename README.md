@@ -22,9 +22,5 @@ This project streams the camera feed from a Raspberry Pi AI camera to a web page
 
 ## Usage
 
-- Camera stream accessed at http://<raspberry-pi-ip>:5000/
+- Camera stream accessed at http://[raspberry-pi-ip]:5000/
 
-## Dependencies
-
-- Flask
-- OpenCV
