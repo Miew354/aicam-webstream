@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Feed</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #message {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            display: none; /* Hidden by default */
+        }
+        #message.error {
+            border-color: red;
+            color: red;
+        }
+        #message.success {
+            border-color: green;
+            color: green;
+        }
+        #detections {
+            margin-top: 20px;
+        }
+        #no-detections {
+            display: none;
+            color: red;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Video Feed</h1>
+    <img id="video" src="{{ url_for('video_feed') }}" width="640" height="480" alt="Video Feed">
+    <div id="no-detections">No detections</div>
+
+    <script>
+        const noDetections = document.getElementById('no-detections');
+
+        function checkDetections() {
+            fetch('{{ url_for('detection_status') }}')
+                .then(response => response.text())
+                .then(text => {
+                    const hasDetections = text === 'True';
+                    noDetections.style.display = hasDetections ? 'none' : 'block';
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        setInterval(checkDetections, 1000); // Check for detections every second
+    </script>
+</body>
+</html>
