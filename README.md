@@ -1,5 +1,5 @@
 # Raspberry Pi Ai Camera Stream
-Allows quick visual testing of the AI cam on a headless raspberry pi via web interface using a modified version of the IMX500 [object detection example] (https://github.com/raspberrypi/picamera2/blob/main/examples/imx500/imx500_object_detection_demo.py).  
+Allows quick visual testing of the AI cam on a headless raspberry pi via web interface using a modified version of the IMX500 [object detection example](https://github.com/raspberrypi/picamera2/blob/main/examples/imx500/imx500_object_detection_demo.py).  
 
 ## Installation and Running
 
