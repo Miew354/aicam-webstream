@@ -15,6 +15,9 @@ from picamera2.devices.imx500 import (NetworkIntrinsics,
 
 app = Flask(__name__)
 
+#labels file, change to your own labels file if required for model
+labels_file = "null"
+
 last_detections = []
 
 class Detection:
@@ -188,7 +191,7 @@ if __name__ == "__main__":
 
     # Defaults
     if intrinsics.labels is None:
-        with open("assets/coco_labels.txt", "r") as f:
+        with open(labels_file, "r") as f:
             intrinsics.labels = f.read().splitlines()
     intrinsics.update_with_defaults()
 
